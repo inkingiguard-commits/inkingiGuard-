@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1038590498927",
+    "project_id": "inkingiguard-bb211",
+    "storage_bucket": "inkingiguard-bb211.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038590498927:android:3a7f0a22b256db17cc159a",
+        "android_client_info": {
+          "package_name": "com.inkingiguard.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038590498927-dm4p6tc0jooms7fuo1ih9vh8rcm81io8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMaacgNbNIaDXS5lLqHPRdmuxucr2TE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038590498927-dm4p6tc0jooms7fuo1ih9vh8rcm81io8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

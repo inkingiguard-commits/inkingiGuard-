@@ -1,0 +1,6 @@
+{
+  "name": "InkingiGuard AI",
+  "description": "Intelligent Android phone protection, recovery, and security signal correlation system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

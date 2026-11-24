@@ -1,0 +1,140 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return isAuthenticated() && request.auth.token.email_verified == true;
+    }
+
+    function isSuperAdmin() {
+      return isEmailVerified() &&
+        exists(/databases/$(database)/documents/appconfig/admins) &&
+        request.auth.token.email in get(/databases/$(database)/documents/appconfig/admins).data.adminEmails;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isValidNullableLat(lat) {
+      return lat == null || (lat is number && lat >= -90 && lat <= 90);
+    }
+
+    function isValidNullableLng(lng) {
+      return lng == null || (lng is number && lng >= -180 && lng <= 180);
+    }
+
+    function isValidCoordinatePair(lat, lng) {
+      return lat is number && lng is number &&
+        lat >= -90 && lat <= 90 &&
+        lng >= -180 && lng <= 180 &&
+        (lat != 0 || lng != 0);
+    }
+
+    function isValidDeviceSummary(userId, deviceId) {
+      let d = request.resource.data;
+      return d.ownerUid == userId &&
+        d.deviceId == deviceId &&
+        (!('lastKnownLat' in d) || isValidNullableLat(d.lastKnownLat)) &&
+        (!('lastKnownLng' in d) || isValidNullableLng(d.lastKnownLng)) &&
+        (!('batteryLevel' in d) || (d.batteryLevel is number && d.batteryLevel >= 0 && d.batteryLevel <= 100));
+    }
+
+    function isValidRecoveryTelemetry(userId, deviceId) {
+      let d = request.resource.data;
+      return d.ownerUid == userId &&
+        d.deviceId == deviceId &&
+        d.timestamp is number && d.timestamp > 0 &&
+        (!('lastKnownLat' in d) || isValidNullableLat(d.lastKnownLat)) &&
+        (!('lastKnownLng' in d) || isValidNullableLng(d.lastKnownLng)) &&
+        (!('batteryLevel' in d) || (d.batteryLevel is number && d.batteryLevel >= 0 && d.batteryLevel <= 100));
+    }
+
+    function isValidLocationBreadcrumb(userId, deviceId) {
+      let d = request.resource.data;
+      return d.ownerUid == userId &&
+        d.deviceId == deviceId &&
+        isValidCoordinatePair(d.latitude, d.longitude) &&
+        d.timestamp is number && d.timestamp > 0 &&
+        (!('accuracy' in d) || (d.accuracy is number && d.accuracy >= 0)) &&
+        (!('batteryLevel' in d) || (d.batteryLevel is number && d.batteryLevel >= -1 && d.batteryLevel <= 100));
+    }
+
+    // App Configuration & Global Administrative State
+    match /appconfig/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isSuperAdmin();
+    }
+    match /appConfig/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isSuperAdmin();
+    }
+
+    // User Subtrees: strictly owner-scoped
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isSuperAdmin();
+      allow create: if isOwner(userId) &&
+        !('isSuperAdmin' in request.resource.data) &&
+        (!('role' in request.resource.data) || request.resource.data.role == 'OWNER');
+      allow update: if (isOwner(userId) &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny(['isSuperAdmin', 'role', 'isSuspended']))
+        || isSuperAdmin();
+      allow delete: if isSuperAdmin();
+
+      // Owner-scoped behavioral patterns and mail triggers
+      match /patterns/{patternId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      match /mailTriggers/{triggerId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      // Owner-scoped Devices & Real-Time Location Recovery
+      match /devices/{deviceId} {
+        allow read: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidDeviceSummary(userId, deviceId);
+        allow delete: if isSuperAdmin();
+
+        match /recovery_telemetry/{telemetryId} {
+          allow read: if isOwner(userId);
+          allow create, update: if isOwner(userId) && isValidRecoveryTelemetry(userId, deviceId);
+          allow delete: if false;
+        }
+
+        match /location_breadcrumbs/{breadcrumbId} {
+          allow read: if isOwner(userId);
+          allow create, update: if isOwner(userId) && isValidLocationBreadcrumb(userId, deviceId);
+          allow delete: if false;
+        }
+
+        match /recovery_history/{batchId} {
+          allow read: if isOwner(userId);
+          allow create, update: if isOwner(userId) &&
+            request.resource.data.ownerUid == userId &&
+            request.resource.data.deviceId == deviceId;
+          allow delete: if false;
+        }
+
+        match /commands/{commandId} {
+          allow read: if isOwner(userId);
+          allow create: if isOwner(userId) &&
+            request.resource.data.deviceId == deviceId &&
+            request.resource.data.issuedBy == userId;
+          allow update: if isOwner(userId) &&
+            request.resource.data.deviceId == deviceId;
+          allow delete: if false;
+        }
+
+        match /policeEvidence/{evidenceId} {
+          allow read, create, update: if isOwner(userId);
+          allow delete: if false;
+        }
+      }
+    }
+  }
+}

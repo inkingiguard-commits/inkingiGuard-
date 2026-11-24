@@ -1,0 +1,218 @@
+<resources>
+    <string name="app_name">InkingiGuard AI</string>
+    <string name="tagline">Protection et Récupération Intelligente Android</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">BOUCLIER</string>
+    <string name="nav_sensors">Capteurs</string>
+    <string name="nav_timeline">HISTORIQUE</string>
+    <string name="nav_zones">ANTI-ARNAQUE</string>
+    <string name="nav_theft_recovery">Récupération</string>
+    <string name="nav_settings">Paramètres</string>
+
+    <!-- Security States -->
+    <string name="state_normal">NORMAL</string>
+    <string name="state_warning">AVERTISSEMENT</string>
+    <string name="state_danger">DANGER</string>
+    <string name="state_suspected_lost">PERTE SUSPECTÉE</string>
+    <string name="state_owner_confirmed_stolen">VOL CONFIRMÉ</string>
+    <string name="state_stolen_mode">MODE VOL</string>
+    <string name="state_recovery_mode">MODE RÉCUPÉRATION</string>
+    <string name="state_recovered">RÉCUPÉRÉ</string>
+
+    <!-- State Descriptions -->
+    <string name="state_desc_normal">Ligne de base nominale — télémétrie matérielle normalisée</string>
+    <string name="state_desc_warning">Vigilance défensive armée — anomalies télémétriques mineures</string>
+    <string name="state_desc_danger">État de menace critique — déplacement ou accès non autorisé</string>
+    <string name="state_desc_suspected_lost">Perte suspectée — périmètre franchi et anomalie cinétique</string>
+    <string name="state_desc_owner_confirmed_stolen">Vol confirmé par le propriétaire — verrouillage en cours</string>
+    <string name="state_desc_stolen_mode">MODE VOL ACTIF — traçage à distance et balise active</string>
+    <string name="state_desc_recovery_mode">Protocole de récupération actif — vérification de garde</string>
+    <string name="state_desc_recovered">Appareil récupéré — garde rétablie</string>
+
+    <!-- Risk Levels -->
+    <string name="risk_level_low">FAIBLE</string>
+    <string name="risk_level_medium">MOYEN</string>
+    <string name="risk_level_high">ÉLEVÉ</string>
+    <string name="risk_severity_suffix">SÉVÉRITÉ</string>
+    <string name="risk_score_label">Score de Risque</string>
+    <string name="protection_active">Protection Active en Temps Réel</string>
+    <string name="protection_description">Télémétrie multi-capteurs et corrélation d\'anomalies actives</string>
+
+    <!-- Dashboard -->
+    <string name="telemetry_overview">Télémétrie et Signaux</string>
+    <string name="gps_status">État GPS</string>
+    <string name="sim_status">État Carte SIM</string>
+    <string name="battery_status">Batterie et Santé</string>
+    <string name="network_status">Sécurité Réseau</string>
+    <string name="sensors_status">Réseau de Capteurs</string>
+    <string name="ai_advisory">Conseiller IA</string>
+    <string name="ai_advisory_subtitle">Conseils d\'analyse de situation en temps réel</string>
+    <string name="ai_recommendation_label">Recommandation de sévérité</string>
+    <string name="ai_actions_label">Actions tactiques</string>
+    <string name="audit_log_title">Facteurs Déterministes de Risque</string>
+    <string name="quick_actions">Contrôles de Sécurité</string>
+    <string name="arm_system">Armer Alerte Maximale</string>
+    <string name="disarm_system">Désarmer le Système</string>
+    <string name="run_security_audit">Lancer le Diagnostic</string>
+    <string name="simulate_signals">Simuler les signaux</string>
+    <string name="gps_in_zone">Dans la zone de confiance</string>
+    <string name="gps_out_zone">Périmètre franchi !</string>
+    <string name="gps_awaiting">En attente du signal GPS</string>
+    <string name="sim_carrier_present">Opérateur détecté</string>
+    <string name="sim_missing_changed">SIM absente ou modifiée !</string>
+    <string name="battery_charging">En charge</string>
+    <string name="battery_discharging">Sur batterie</string>
+    <string name="battery_reboot_anomaly">Anomalie de redémarrage</string>
+    <string name="battery_normal">Batterie normale</string>
+    <string name="network_connected">Connecté</string>
+    <string name="network_disconnected">Déconnecté</string>
+    <string name="network_vpn_active">VPN actif</string>
+    <string name="sensors_detected_fmt">%1$d/8 détectés</string>
+
+    <!-- Sensors -->
+    <string name="sensors_title">Couche d\'Intelligence Capteurs</string>
+    <string name="sensors_subtitle">Normalisation de la télémétrie matérielle et détection d\'anomalies</string>
+    <string name="motion_engine_title">Moteur d\'Analyse de Mouvement</string>
+    <string name="sensor_accelerometer">Accéléromètre</string>
+    <string name="sensor_gyroscope">Gyroscope</string>
+    <string name="sensor_rotation">Vecteur de Rotation</string>
+    <string name="sensor_magnetometer">Magnétomètre</string>
+    <string name="sensor_proximity">Capteur de Proximité</string>
+    <string name="sensor_light">Lumière Ambiante</string>
+    <string name="sensor_barometer">Baromètre / Pression</string>
+    <string name="sensor_motion">Mouvement Significatif</string>
+    <string name="sensor_available">Matériel Détecté</string>
+    <string name="sensor_unavailable">Non Présent</string>
+    <string name="sensor_calibrated">Actif et Normalisé</string>
+    <string name="sensor_accel_mag">MAGNITUDE ACCÉL.</string>
+    <string name="sensor_angular_vel">VITESSE ANGULAIRE</string>
+    <string name="sensor_confidence">CONFIANCE</string>
+    <string name="sensor_movement_stationary">IMMOBILE</string>
+    <string name="sensor_movement_handheld">PORTATIF NORMAL</string>
+    <string name="sensor_movement_acceleration">ACCÉLÉRATION SOUDAINE</string>
+    <string name="sensor_movement_rotation">ROTATION ANORMALE</string>
+    <string name="sensor_simulate_jerk">Simuler secousse (+15)</string>
+    <string name="sensor_reset_kinetic">Réinitialiser cinétique</string>
+
+    <!-- Timeline -->
+    <string name="timeline_title">Chronologie des Signaux</string>
+    <string name="timeline_subtitle">Registre d\'événements chronologique et auditable</string>
+    <string name="timeline_filter_all">Tous les signaux (%1$d)</string>
+    <string name="timeline_filter_anomalies">Anomalies</string>
+    <string name="timeline_filter_auth">Authentification</string>
+    <string name="clear_events">Effacer le Registre</string>
+    <string name="timeline_empty">Aucun événement de sécurité enregistré pour le moment.</string>
+
+    <!-- Zones -->
+    <string name="zones_title">Zones Géographiques de Confiance</string>
+    <string name="zones_subtitle">Périmètres géolocalisés de sécurité</string>
+    <string name="add_zone">Créer une Zone</string>
+    <string name="zone_name_hint">Nom de la Zone (ex: Domicile, Bureau)</string>
+    <string name="zone_radius_label">Rayon (mètres)</string>
+    <string name="set_current_location">Utiliser la Position Actuelle</string>
+    <string name="zone_inside">Dans le Périmètre</string>
+    <string name="zone_outside">Hors Périmètre (+20 Risque)</string>
+    <string name="zones_radius_fmt">Rayon : %1$.0f m</string>
+    <string name="zones_delete">Supprimer</string>
+    <string name="zones_no_zones">Aucune zone de confiance définie. Ajoutez une zone pour surveiller les déplacements.</string>
+
+    <!-- Theft & Recovery -->
+    <string name="theft_recovery_title">Opérations de Vol et Récupération</string>
+    <string name="theft_mode_desc">Exige une authentification maître. Verrouille l\'accès et enregistre la piste GPS.</string>
+    <string name="theft_console_title">Console de Réponse aux Incidents et Récupération</string>
+    <string name="theft_console_subtitle">Protocole autorisé par le propriétaire, verrouillage Android légitime et balise active</string>
+    <string name="theft_incident_state">ÉTAT DE L\'INCIDENT</string>
+    <string name="theft_action_stolen">Confirmer le Vol par le Propriétaire</string>
+    <string name="theft_action_recovery">Engager le Mode Récupération</string>
+    <string name="theft_action_recovered">Marquer l\'Appareil Récupéré</string>
+    <string name="theft_action_lock_now">Verrouiller l\'Écran Immédiatement</string>
+    <string name="theft_action_view_dossier">Consulter le Dossier d\'Incident</string>
+    <string name="theft_action_sync_queue">Synchroniser la File Hors Ligne</string>
+    <string name="theft_protocol_title">Protocole de Récupération et Autorités</string>
+    <string name="theft_protocol_step1">1. Déposez plainte avec l\'identifiant cryptographique unique de l\'appareil</string>
+    <string name="theft_protocol_step2">2. La balise télémétrique transmettra les coordonnées GPS dès reconnexion réseau</string>
+    <string name="theft_protocol_step3">3. Ne confrontez pas directement les suspects ; transmettez le dossier aux autorités compétentes</string>
+    <string name="theft_dialog_pin_title">Autorisation par Code PIN Maître</string>
+    <string name="theft_dialog_pin_hint">Entrez le code PIN maître à 4 chiffres</string>
+    <string name="theft_dialog_confirm">Confirmer l\'Autorisation</string>
+    <string name="theft_dialog_cancel">Annuler</string>
+    <string name="theft_dialog_invalid_pin">Code PIN invalide. Accès refusé.</string>
+    <string name="theft_lock_success">Commande de verrouillage transmise au gestionnaire de stratégie de l\'appareil.</string>
+    <string name="theft_lock_fail_no_admin">L\'autorisation d\'administrateur de périphérique est requise pour verrouiller l\'écran.</string>
+    <string name="theft_report_title">Dossier Cryptographique de Vol</string>
+    <string name="generate_report">Exporter le Rapport</string>
+
+    <!-- Settings -->
+    <string name="settings_subtitle">Configuration système, permissions télémétriques et langue</string>
+    <string name="settings_profile_title">Identité Matérielle Enregistrée</string>
+    <string name="settings_device_name">Nom de l\'Appareil</string>
+    <string name="settings_device_id">Identifiant Matériel du Nœud</string>
+    <string name="settings_owner_email">Email du Propriétaire</string>
+    <string name="settings_baseline_title">Ligne de Base d\'Apprentissage Comportemental</string>
+    <string name="settings_baseline_established">Établie</string>
+    <string name="settings_baseline_learning">Apprentissage en cours</string>
+    <string name="settings_baseline_paused">En pause</string>
+    <string name="settings_baseline_stale">Obsolète</string>
+    <string name="settings_baseline_samples">Échantillons : %1$d</string>
+    <string name="settings_baseline_confidence">Confiance : %1$.0f%%</string>
+    <string name="settings_baseline_pause_btn">Mettre en Pause</string>
+    <string name="settings_baseline_resume_btn">Reprendre l\'Apprentissage</string>
+    <string name="settings_baseline_reset_btn">Réinitialiser la Base</string>
+    <string name="settings_diagnostics_title">Simulateur Matériel de Diagnostic</string>
+    <string name="settings_diag_sim">Simuler Changement SIM</string>
+    <string name="settings_diag_zone">Simuler Sortie de Zone</string>
+    <string name="settings_diag_kinetic">Simuler Impact Cinétique</string>
+    <string name="settings_diag_reboot">Simuler Anomalie Redémarrage</string>
+    <string name="settings_diag_network">Simuler Coupure Radio</string>
+    <string name="settings_diag_reset">Réinitialiser les Simulations</string>
+
+    <!-- Auth & Onboarding -->
+    <string name="welcome_title">InkingiGuard AI</string>
+    <string name="welcome_subtitle">Sécurité matérielle et IA avancée pour Android</string>
+    <string name="register_device">Enregistrer cet Appareil</string>
+    <string name="device_name_label">Identifiant de l\'Appareil</string>
+    <string name="owner_email_label">Email de Sécurité</string>
+    <string name="master_pin_label">Code PIN Maître</string>
+    <string name="confirm_pin_label">Confirmer le PIN</string>
+    <string name="biometric_auth">Autorisation Biométrique</string>
+    <string name="biometric_desc">Vérifiez votre empreinte pour changer l\'état de sécurité</string>
+    <string name="get_started">Initialiser la Défense</string>
+    <string name="onboarding_title">Enregistrer l\'Identité de Sécurité</string>
+    <string name="onboarding_desc">Établissez les identifiants maîtres d\'autorisation pour la récupération InkingiGuard :</string>
+    <string name="onboarding_device_name">Nom de l\'Appareil</string>
+    <string name="onboarding_owner_email">Email du Propriétaire</string>
+    <string name="onboarding_pin">Code PIN Maître (4 chiffres)</string>
+    <string name="onboarding_confirm_pin">Confirmer le Code PIN</string>
+    <string name="onboarding_submit">Enregistrer le Nœud</string>
+    <string name="onboarding_err_pin_length">Le code PIN doit comporter au moins 4 chiffres</string>
+    <string name="onboarding_err_pin_match">Les codes PIN ne correspondent pas</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_disarm_title">Désarmer le Système de Sécurité</string>
+    <string name="dialog_disarm_desc">Entrez le code PIN maître pour désarmer l\'alerte et rétablir la posture nominale.</string>
+    <string name="dialog_disarm_pin_label">Code PIN Maître</string>
+    <string name="dialog_disarm_btn">Confirmer le Désarmement</string>
+    <string name="dialog_cancel">Annuler</string>
+    <string name="dialog_incorrect_pin">Code PIN incorrect. Tentative consignée dans le journal d\'audit.</string>
+    <string name="diagnostics_modal_title">Diagnostic des Signaux de Télémétrie</string>
+    <string name="diagnostics_modal_desc">Simulez des scénarios d\'anomalies matérielles pour tester la corrélation défensive InkingiGuard IA :</string>
+    <string name="diagnostics_close">Fermer le Diagnostic</string>
+
+    <!-- Notifications & Services -->
+    <string name="recovery_notification_title">InkingiGuard : Protocole de Récupération Actif</string>
+    <string name="recovery_notification_text">Télémétrie d\'urgence matérielle et surveillance de périmètre actives.</string>
+
+    <!-- Permissions -->
+    <string name="permission_title">Permissions de Télémétrie</string>
+    <string name="permission_desc">InkingiGuard nécessite la localisation et l\'état du téléphone pour détecter le déplacement physique et le changement de carte SIM.</string>
+    <string name="grant_permissions">Accorder les Permissions</string>
+    <string name="permissions_granted">Toutes les Permissions Accordées</string>
+
+    <!-- General -->
+    <string name="status_ok">Normal</string>
+    <string name="status_caution">Attention</string>
+    <string name="status_critical">Critique</string>
+    <string name="language_selection">Langue</string>
+    <string name="app_version">Moteur d\'Architecture InkingiGuard v1.0.0</string>
+</resources>
